@@ -1,47 +1,33 @@
 /* ==========================================
-   PORTAFOLIO NICOLE ARIAS - ESTILOS
-   Estilo: Minimalista / Diseñadora Gráfica
+   PORTAFOLIO NICOLE ARIAS - CSS NUEVO
+   Estilo: Minimalista / Morado / Linktree
    ========================================== */
 
-/* Importación de la fuente Inter desde Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-/* Variables de Color y Diseño */
+/* Variables de Color (Morado) */
 :root {
-  /* Color principal de marca: Concho de vino */
-  --brand-wine: #5B1B29;
-  --brand-wine-hover: #42111C;
-  --brand-wine-light: rgba(91, 27, 41, 0.05);
-
-  /* Neutros y Fondos */
-  --bg-color: #FBF9F8;        /* Blanco cálido minimalista */
-  --text-primary: #1C1C1C;    /* Gris oscuro suave para texto */
-  --text-muted: #666666;      /* Gris medio para subtítulos */
-  --white: #FFFFFF;
-  --border-light: #E8E2E0;
-
-  /* Tipografía */
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --purple-main: #6B21A8;       /* Morado principal */
+  --purple-hover: #581C87;      /* Morado más oscuro para hover */
+  --purple-glow: rgba(107, 33, 168, 0.25);
   
-  /* Transiciones y Sombras */
-  --transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-  --shadow-soft: 0 4px 20px rgba(91, 27, 41, 0.06);
-  --shadow-hover: 0 10px 25px rgba(91, 27, 41, 0.15);
+  --bg-color: #F9FAFB;         /* Fondo suave casi blanco */
+  --text-primary: #1F2937;     /* Texto oscuro */
+  --text-muted: #6B7280;       /* Texto secundario */
+  --white: #FFFFFF;
+  --border-color: #E5E7EB;
+
+  --font-inter: 'Inter', sans-serif;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
-
-
-/* Reset Básico */
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
 body {
-  font-family: var(--font-family);
+  font-family: var(--font-inter);
   background-color: var(--bg-color);
   color: var(--text-primary);
   min-height: 100vh;
@@ -53,15 +39,21 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Contenedor Principal (Estilo Linktree Centrado) */
+/* Ocultar elementos sobrantes que causaban la duplicación si no has actualizado el HTML aún */
+.main-content > h1:first-child,
+.main-content > p:nth-child(2) {
+  display: none !important;
+}
+
+/* Contenedor Centrado Tipo Linktree */
 .main-content {
   width: 100%;
-  max-width: 480px;
+  max-width: 440px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 /* Encabezado */
@@ -75,20 +67,19 @@ body {
 .title h1 {
   font-size: 2.25rem;
   font-weight: 700;
-  color: var(--brand-wine);
-  letter-spacing: -0.03em;
-  line-height: 1.2;
+  color: var(--purple-main);
+  letter-spacing: -0.025em;
 }
 
 .title p {
-  font-size: 0.95rem;
-  font-weight: 400;
+  font-size: 0.875rem;
+  font-weight: 500;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.15em;
 }
 
-/* Menú / Lista de Proyectos */
+/* Navegación y Lista */
 nav {
   width: 100%;
 }
@@ -97,7 +88,7 @@ nav ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1rem;
   width: 100%;
 }
 
@@ -105,28 +96,28 @@ nav ul {
   width: 100%;
 }
 
-/* Estilo e Interacción de los Botones de Proyectos */
+/* Botones Interactivos y Dinámicos */
 .item-list a {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 1.1rem 1.5rem;
+  padding: 1rem 1.5rem;
   background-color: var(--white);
-  color: var(--brand-wine);
+  color: var(--purple-main);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1rem;
-  border: 1.5px solid var(--border-light);
-  border-radius: 12px;
-  box-shadow: var(--shadow-soft);
+  border: 1.5px solid var(--border-color);
+  border-radius: 14px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   transition: var(--transition);
   z-index: 1;
 }
 
-/* Fondo expansivo al hacer Hover (Efecto elegante) */
+/* Fondo dinámico al pasar el cursor (Efecto de llenado rápido) */
 .item-list a::before {
   content: '';
   position: absolute;
@@ -134,41 +125,26 @@ nav ul {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--brand-wine);
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: var(--purple-main);
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: -1;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
-/* Animación Hover */
+/* Efecto Hover */
 .item-list a:hover {
   color: var(--white);
-  border-color: var(--brand-wine);
-  box-shadow: var(--shadow-hover);
+  border-color: var(--purple-main);
   transform: translateY(-3px);
-  letter-spacing: 0.03em;
+  box-shadow: 0 10px 20px -3px var(--purple-glow);
 }
 
 .item-list a:hover::before {
-  transform: scaleX(1);
-  transform-origin: left;
+  transform: translateY(0);
 }
 
-/* Interacción al hacer Clic (Active) */
+/* Click (Active) */
 .item-list a:active {
-  transform: translateY(-1px) scale(0.99);
-}
-
-/* Responsivo para pantallas muy pequeñas */
-@media (max-width: 380px) {
-  .title h1 {
-    font-size: 1.85rem;
-  }
-  
-  .item-list a {
-    padding: 1rem 1.2rem;
-    font-size: 0.95rem;
-  }
+  transform: translateY(-1px) scale(0.98);
 }
